@@ -1,0 +1,45 @@
+body{
+    background: #cf2b2b;
+    background: radial-gradient(circle, rgba(207, 43, 43, 1) 0%, rgba(0, 0, 0, 1) 100%);
+    color: white;
+    font-family: "Questrial", sans-serif;
+    text-align: center;
+}
+
+h1{
+    font-weight: bold;
+    font-size: 75px;
+    margin-bottom: 100px;
+}
+
+#instructions{
+    font-size: 35px;
+    margin-bottom: 100px;
+}
+
+form{
+    border: solid rgb(255, 230, 5) 5px;
+    border-radius: 20px;
+    font-size: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 10px;
+}
+
+.form-group label {
+    width: 500px;
+    text-align: right;
+}
+
+.form-group input,
+.form-group select {
+    padding: 0.5rem;
+}
+
