@@ -31,3 +31,36 @@ button:hover{
 button:active{
     background-color: rgb(0, 139, 275);
 }
+
+.workout-grid{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+    "workout explanation"
+    "workout nutrition";
+    margin-right: 50px;
+}
+
+.workout{
+    grid-area: workout;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+}
+
+.explanation{
+    grid-area: explanation;
+}
+
+.explanation h2{
+    font-weight: bold;
+}
+
+.nutrition{
+    grid-area: nutrition;
+}
+
+.nutrition h2{
+    font-weight: bold;
+}
