@@ -69,17 +69,26 @@ def generate():
     Give an explanation on explaining the workout and why it's good
     Give some advice and explanation on nutrition to help reach their weight goal
     """
-
-    response = client.models.generate_content(
-    model="gemini-3.5-flash-lite",
-    contents=prompt,
-    config=types.GenerateContentConfig(
-        system_instruction="You are a workout generator. If asked about anything else, decline it",
-        response_mime_type="application/json"
+    try:
+        response = client.models.generate_content(
+        model="gemini-3.5-flash-lite",
+        contents=prompt,
+        config=types.GenerateContentConfig(
+            system_instruction="You are a workout generator. If asked about anything else, decline it",
+            response_mime_type="application/json"
+            )
         )
-    )
-    workout = json.loads(response.text)
-    return render_template("your-workout.html", workout=workout)
+    except Exception as e:
+        app.logger.error(f"Gemini API error: {e}")
+        return render_template("home.html", error="Something went wrong generating your workout. Please try again.")
+
+    try:
+        workout = json.loads(response.text)
+        return render_template("your-workout.html", workout=workout)
+    except (json.JSONDecodeError, AttributeError) as e:
+        app.logger.error(f"Failed to parse Gemini response: {e}")
+        return render_template("home.html", error="Received an invalid response. Please try again.")
+
 
 
 if __name__ == "__main__":
