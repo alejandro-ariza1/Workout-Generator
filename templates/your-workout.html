@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='your-workout.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Questrial&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1>Here is your workout</h1>
+
+    <div class="workout-grid">
+        <div class="workout">
+            <p>{% for day in workout.workout_plan %}
+                <h2>{{ day.day }} - {{ day.focus }}</h2>
+                    {% for exercise in day.exercises %}
+                        <p>
+                            {{ exercise.name }} — {{ exercise.reps }} x {{ exercise.sets }} — {{ exercise.rest }} rest
+                        </p>
+                    {% endfor %}
+                {% endfor %}
+            </p>
+        </div>
+
+        <div class="explanation">
+            <p>{{workout.nutrition.advice}}</p>
+            <p>{{workout.nutrition.protein}}</p>
+            <p>{{workout.nutrition.calories}}</p>
+        </div>
+
+        <div class="nutrition">
+            <p>{{workout.explanation}}</p>
+        </div>        
+
+    </div>
+
+    <a href="/">
+        <button>Get another workout</button>
+    </a>
+
+</body>
+</html>

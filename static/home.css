@@ -14,13 +14,13 @@ h1{
 
 #instructions{
     font-size: 35px;
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 form{
-    border: solid rgb(255, 230, 5) 5px;
+    border: solid #ffffff 5px;
     border-radius: 20px;
-    font-size: 25px;
+    font-size: 28px;
     max-width: 900px;
     margin: 0 auto;
     padding: 30px;
@@ -31,6 +31,7 @@ form{
     align-items: center;
     gap: 1rem;
     margin: 10px;
+    margin-bottom: none;
 }
 
 .form-group label {
@@ -40,6 +41,34 @@ form{
 
 .form-group input,
 .form-group select {
+    box-sizing: border-box;
     padding: 0.5rem;
+    font-size: 20px;
+    width: 200px;
+    height: 50px;
+    border-radius: 10px;
+    border-style: none;
 }
 
+button{
+    margin-top: 20px;
+    font-size: 30px;
+    border: none;
+    border-radius: 12px;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    cursor: pointer;
+}
+
+button:hover{
+    background-color: rgb(0, 129, 265);
+    box-shadow: 0 0 8px #287cff;
+}
+
+button:active{
+    background-color: rgb(0, 139, 275);
+}
+
+footer{
+    margin-top: 100px;
+}
